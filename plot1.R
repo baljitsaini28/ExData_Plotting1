@@ -1,0 +1,6 @@
+x<-read.table("F://Data Analytics/Exploratory Data Analysis/Week1/household_power_consumption.txt",header = TRUE,sep=";",na.strings = "?")
+x$Date<-as.date(x$date,format="&d/%m/%Y")
+data <- subset(x, subset = (Date >= "2007-02-01" & Date <= "2007-02-02"))
+with(data,hist(Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power(kilowatts)"))
+dev.copy(png,file="plot1.png")
+dev.off()
